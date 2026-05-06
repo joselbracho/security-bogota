@@ -17,11 +17,11 @@ Este proyecto es una prueba técnica para la gestión de cámaras de seguridad y
 ![Mapa Popup](screenshot2.png)
 
 ### Gestión de Inventario
-![Cámaras](screenshot3.png)
+![Cámaras](screenshot5.png)
 ![Tickets](screenshot4.png)
 
-### Live Stream HUD (Bonus)
-![Live Stream](screenshot5.png)
+### Live Stream HUD 
+![Live Stream](screenshot3.png)
 
 ## Ejecución Rápida
 1. Clonar el repositorio.
