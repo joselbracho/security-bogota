@@ -11,6 +11,18 @@ Este proyecto es una prueba técnica para la gestión de cámaras de seguridad y
 ## Requisitos
 - Docker y Docker Compose
 
+## Visualización
+### Panel de Control y Mapa
+![Dashboard](screenshot1.png)
+![Mapa Popup](screenshot2.png)
+
+### Gestión de Inventario
+![Cámaras](screenshot3.png)
+![Tickets](screenshot4.png)
+
+### Live Stream HUD (Bonus)
+![Live Stream](screenshot5.png)
+
 ## Ejecución Rápida
 1. Clonar el repositorio.
 2. Ejecutar:
@@ -32,8 +44,9 @@ docker-compose exec backend python seed.py
 ### Backend
 1. Ir a `backend/`.
 2. Crear un entorno virtual e instalar dependencias: `pip install -r requirements.txt`.
-3. Configurar `.env` con `DATABASE_URL`.
-4. Ejecutar: `uvicorn app.main:app --reload`.
+3. Ejecutar migraciones: `python manage.py migrate`.
+4. Cargar datos: `python seed.py`.
+5. Ejecutar: `python manage.py runserver`.
 
 ### Frontend
 1. Ir a `frontend/`.
