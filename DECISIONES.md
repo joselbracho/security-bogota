@@ -33,9 +33,9 @@ Se utilizó Gemini CLI de manera estratégica para:
 - **Robustez en el Arranque:** Se implementó un script de verificación de base de datos en el contenedor de backend para asegurar que las migraciones y la semilla de datos solo se ejecuten cuando PostgreSQL esté disponible.
 
 ## Tiempo Invertido
-- Planeación y Diseño de Arquitectura: 1 hora
-- Implementación de Backend (Django/DRF): 3.5 horas
-- Desarrollo de Frontend y Mapas: 2 horas
-- Bonus Track y Pulido de UI/UX: 1 hora
+- Planeación y Diseño de Arquitectura: 1.5 hora
+- Implementación de Backend (Django/DRF): 0,5 horas
+- Desarrollo de Frontend y Mapas: 0,5 horas
+- Bonus Track y Pulido de UI/UX: 0,5 hora
 - Testing y Documentación: 0.5 horas
-- **Total:** ~8 horas
+- **Total:** ~3.5 horas
