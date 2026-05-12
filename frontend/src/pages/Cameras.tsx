@@ -159,11 +159,11 @@ const Cameras = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Latitud (4.4 - 4.9)</label>
-                  <input required type="number" step="0.001" className="w-full px-4 py-2 border rounded-lg" value={formData.latitude} onChange={(e) => setFormData({...formData, latitude: parseFloat(e.target.value)})}/>
+                  <input required type="number" step="0.001" min="4.4" max="4.9" className="w-full px-4 py-2 border rounded-lg" value={formData.latitude} onChange={(e) => setFormData({...formData, latitude: parseFloat(e.target.value)})}/>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Longitud (-74.3 - -73.9)</label>
-                  <input required type="number" step="0.001" className="w-full px-4 py-2 border rounded-lg" value={formData.longitude} onChange={(e) => setFormData({...formData, longitude: parseFloat(e.target.value)})}/>
+                  <input required type="number" step="0.001" min="-74.3" max="-73.9" className="w-full px-4 py-2 border rounded-lg" value={formData.longitude} onChange={(e) => setFormData({...formData, longitude: parseFloat(e.target.value)})}/>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Estado</label>

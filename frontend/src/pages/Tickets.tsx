@@ -40,6 +40,33 @@ const Tickets = () => {
             priority: formData.priority,
             description: formData.description
         });
+
+        // Bonus: Suggest activating camera if it's in maintenance and all tickets are resolved
+        if (formData.status === 'Resolved') {
+            try {
+                // Fetch fresh camera data to get all its tickets (ignoring UI filters)
+                const camRes = await cameraService.get(editingTicket.camera);
+                const camera = camRes.data;
+
+                if (camera && camera.status === 'Maintenance') {
+                    // Check if there are other open tickets in the database for this camera
+                    // Note: The ticket we just updated might still show as 'In Progress' in the 
+                    // fresh fetch if the DB hasn't fully propagated, so we exclude it by ID
+                    const openTickets = camera.tickets.filter((t: any) => 
+                        t.id !== editingTicket.id && 
+                        t.status !== 'Resolved'
+                    );
+
+                    if (openTickets.length === 0) {
+                        if (window.confirm(`Todos los tickets de la cámara ${camera.id} han sido resueltos. ¿Desea cambiar su estado a "Activa"?`)) {
+                            await cameraService.update(camera.id, { status: 'Active' });
+                        }
+                    }
+                }
+            } catch (err) {
+                console.error("Error checking camera status for bonus", err);
+            }
+        }
       } else {
         await ticketService.create(formData);
       }

@@ -34,8 +34,20 @@ Este proyecto es una prueba técnica para la gestión de cámaras de seguridad y
    - **Backend API:** http://localhost:8000/api/v1
    - **Documentación API (Swagger):** http://localhost:8000/docs
 
-## Carga de Datos Iniciales
-El sistema incluye un script de semilla. Si usas Docker, puedes ejecutarlo con:
+## Comandos Útiles (Docker)
+Estos scripts facilitan las tareas comunes. Ejecútalos desde la raíz del proyecto (requieren que los contenedores estén corriendo):
+
+- **Reiniciar Base de Datos:** Limpia todos los datos y vuelve a ejecutar el seed.
+  ```bash
+  ./reset_db.sh
+  ```
+- **Ejecutar Pruebas:** Corre los tests unitarios del backend.
+  ```bash
+  ./run_tests.sh
+  ```
+
+## Carga de Datos Iniciales (Manual)
+El sistema incluye un script de semilla. Si prefieres ejecutarlo manualmente con Docker:
 ```bash
 docker-compose exec backend python seed.py
 ```
@@ -47,15 +59,16 @@ docker-compose exec backend python seed.py
 3. Ejecutar migraciones: `python manage.py migrate`.
 4. Cargar datos: `python seed.py`.
 5. Ejecutar: `python manage.py runserver`.
+6. (Opcional) Ejecutar pruebas: `python manage.py test cameras_api`.
 
 ### Frontend
 1. Ir a `frontend/`.
 2. Instalar dependencias: `npm install`.
 3. Ejecutar: `npm run dev`.
 
-## Pruebas
-Para ejecutar las pruebas del backend:
+## Pruebas (Manual)
+Para ejecutar las pruebas del backend sin Docker:
 ```bash
 cd backend
-pytest
+python manage.py test cameras_api
 ```
